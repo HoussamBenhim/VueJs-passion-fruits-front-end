@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
+
+/*! @import */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  @apply min-h-screen flex justify-center items-center text-center mx-auto;
+}
+
+.error {
+  @apply border-red-500;
+}
+
+.valid {
+  @apply border-green-500;
+}
+.errorMessage {
+  @apply text-red-500 text-sm pr-2;
+}

@@ -12,12 +12,22 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.12.5",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.6"
+    "cors": "^2.8.5",
+    "feather": "0.0.6",
+    "feather-icons": "^4.28.0",
+    "gsap": "^3.5.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
+    "nuxt": "^2.14.6",
+    "vuelidate": "^0.7.6"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/global-components": "^0.6.1",
     "@nuxtjs/tailwindcss": "^3.1.0",
     "@vue/test-utils": "^1.1.0",
     "babel-core": "7.0.0-bridge.0",
