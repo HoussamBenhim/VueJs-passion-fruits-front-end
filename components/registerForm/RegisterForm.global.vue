@@ -306,7 +306,6 @@ export default {
               e.response.data.message
             )
           } else {
-            console.log('passed her')
             this.add_notification_to_user('error', 'Erreur', e.message)
           }
         }

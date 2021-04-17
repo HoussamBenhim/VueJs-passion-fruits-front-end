@@ -6,6 +6,9 @@ module.exports = {
   purge: [],
   theme: {
     extend: {
+      height: {
+        50: '24rem',
+      },
       spacing: {
         96: '24rem',
       },

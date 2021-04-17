@@ -1,41 +1,17 @@
 <template>
-  <div>
-    <div>Home</div>
-    <NuxtLink to="/fruits">fruits page</NuxtLink>
+  <div class="flex flex-col">
+    <div class="border h-50">tag video</div>
+    <div class="border">adress component</div>
+    <div class="border">hero</div>
   </div>
 </template>
 
 <script>
 export default {
-  components: {},
-  head() {
-    return {
-      title: '-Epicerie- Marché',
-    }
+  created() {
+    this.$store.dispatch('navBarModule/hideNavbar')
   },
 }
 </script>
 
-<style>
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
+<style lang="scss" scoped></style>

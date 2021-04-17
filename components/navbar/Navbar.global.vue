@@ -1,35 +1,36 @@
 <template>
-  <nav class="z-0 bg-primary">
-    <div class="mx-auto px-2">
-      <div class="relative flex items-center justify-between h-20">
-        <!-- Mobile menu button Burger @click.prevent="switch_burger_icon_status"-->
-        <Burgerbutton
-          class="md:hidden"
-          :burger-status="burger_icon_status"
-          @switch_icon="switch_burger_icon_status"
-        />
-        <!-- logo -->
-        <div @click="logout">
-          <Logo />
-        </div>
-
-        <div
-          class="absolute inset-y-0 right-0 flex items-center md:pr-2 md:mr-3 lg:mr-8 sm:static sm:inset-auto md:ml-6 sm:pr-0"
-        >
-          <!-- @click="toggelLoginForm" show or hide login/register form -->
-          <LoginLogoutButton
-            :name="getUserName"
-            @toggle_login_form="show_hide_login_form"
+  <div :class="{ hidden: navBarStatus }">
+    <nav class="z-0 bg-primary">
+      <div class="mx-auto px-2">
+        <div class="relative flex items-center justify-between h-20">
+          <!-- Mobile menu button Burger @click.prevent="switch_burger_icon_status"-->
+          <Burgerbutton
+            class="md:hidden"
+            :burger-status="burger_icon_status"
+            @switch_icon="switch_burger_icon_status"
           />
-          <Basket :article-count="articles.length" />
+          <!-- logo -->
+          <div @click="logout">
+            <Logo />
+          </div>
+          <div
+            class="absolute inset-y-0 right-0 flex items-center md:pr-2 md:mr-3 lg:mr-8 sm:static sm:inset-auto md:ml-6"
+          >
+            <!-- @click="toggelLoginForm" show or hide login/register form -->
+            <LoginLogoutButton
+              :name="getUserName"
+              @toggle_login_form="show_hide_login_form"
+            />
+            <Basket :article-count="articles.length" />
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import Burgerbutton from './Burgerbutton'
 import LoginLogoutButton from './LoginLogoutButton'
 import Basket from './Basket'
@@ -51,6 +52,7 @@ export default {
   computed: {
     ...mapGetters('loginModule', ['getUserName']),
     ...mapGetters(['getMenuState']),
+    ...mapState('navBarModule', ['navBarStatus']),
   },
   methods: {
     switch_burger_icon_status() {

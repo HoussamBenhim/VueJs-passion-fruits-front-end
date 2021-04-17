@@ -43,7 +43,7 @@ export default {
 
   // Server Port Number
   server: {
-    port: 8080,
+    port: 8081,
   },
   env: {
     DEV_BASE_URL: 'http://localhost:8080',
