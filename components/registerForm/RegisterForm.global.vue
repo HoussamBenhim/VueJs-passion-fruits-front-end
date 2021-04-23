@@ -23,11 +23,6 @@
           class="py-10 z-50 px-5 max-w-lg w-full space-y-8 h-4/5 bg-white-50 shadow-3xl"
         >
           <div>
-            <!-- <img
-              class="mx-auto h-12 w-auto"
-              src="@/assets/logo.png"
-              alt="logo"
-            /> -->
             <h2 class="mt-6 text-center text-2xl font-extrabold text-gray-900">
               Créer mon compte
             </h2>

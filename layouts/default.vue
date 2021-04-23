@@ -1,9 +1,10 @@
 <template>
   <div>
-    <LoginForm />
-    <RegisterForm />
+    <!-- <LoginForm /> -->
+    <!-- <RegisterForm /> -->
     <Navbar />
-    <NotificationContainer />
+    <DropdownMenu />
+    <!-- <NotificationContainer /> -->
     <Nuxt />
   </div>
 </template>

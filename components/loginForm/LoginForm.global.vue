@@ -1,17 +1,17 @@
 <template>
-  <div :class="{ hidden: !loginFormState, 'bg-white': true }">
+  <div
+    :class="{
+      hidden: !loginFormState,
+      'bg-white flex flex-row': true,
+    }"
+  >
     <div
-      id="loginForm"
-      class="w-screen sm:w-96 bg-white md:flex-shrink-0 opacity-100 fixed right-0 h-screen z-50"
-    >
-      <!-- <div class="hidden md:block h-48 md:h-60 z-0"> -->
-      <!-- <img
-        class="h-full w-full object-cover w-auto shadow-3xl z-0"
-        src="@/assets/images/background-legumes.jpg"
-        alt="légumes"
-      /> -->
-      <!-- </div> -->
-      <div class="flex justify-end focus:outline-none m-5">
+      class="absolute w-9/12 bg-gray-900 opacity-50 left-0 h-screen z-40"
+      @click.prevent="toggelLoginForm"
+    ></div>
+
+    <div id="loginForm" class="absolute right-0 w-3/12 bg-white h-screen z-50">
+      <div id="close-button" class="flex justify-end focus:outline-none m-5">
         <button class="focus:outline-none" @click="toggelLoginForm">
           <BaseIcon name="x" />
         </button>
@@ -23,11 +23,6 @@
           class="py-10 z-50 px-5 max-w-lg w-full space-y-8 h-4/5 bg-white-50 shadow-3xl"
         >
           <div>
-            <!-- <img
-              class="mx-auto h-12 w-auto"
-              src="@/assets/logo.png"
-              alt="logo"
-            /> -->
             <h2 class="mt-6 text-center text-2xl font-extrabold text-gray-900">
               Se connecter
             </h2>
@@ -36,7 +31,7 @@
             <div class="rounded-sm shadow-sm -space-y-px">
               <div class="mb-5">
                 <BaseInput
-                  id="email-address"
+                  id="email-address-login-form"
                   v-model="email"
                   :model-value="email"
                   name="email"
@@ -146,11 +141,6 @@
         </div>
       </div>
     </div>
-
-    <div
-      class="w-full bg-gray-900 opacity-50 md:flex-shrink-0 fixed left-0 h-screen z-40"
-      @click.prevent="toggelLoginForm"
-    ></div>
   </div>
 </template>
 
@@ -177,11 +167,17 @@ export default {
   },
   watch: {
     loginFormState() {
-      gsap.from('#loginForm', {
-        duration: 1,
-        x: 200,
-        ease: 'power4',
-      })
+      gsap.fromTo(
+        '#loginForm',
+        {
+          x: 50,
+        },
+        {
+          x: 0,
+          ease: 'power4',
+          duration: 1,
+        }
+      )
     },
   },
   methods: {

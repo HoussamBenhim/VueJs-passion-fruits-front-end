@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ hidden: navBarStatus }">
+  <div>
     <nav class="z-0 bg-primary">
       <div class="mx-auto px-2">
         <div class="relative flex items-center justify-between h-20">
@@ -38,7 +38,6 @@ import Basket from './Basket'
 export default {
   components: {
     Burgerbutton,
-
     LoginLogoutButton,
     Basket,
   },

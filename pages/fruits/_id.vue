@@ -1,5 +1,5 @@
 <template>
-  <div>#{{ this.$route.params.id }}</div>
+  <div># page fruits</div>
 </template>
 
 <script>

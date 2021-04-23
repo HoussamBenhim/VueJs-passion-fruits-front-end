@@ -6,10 +6,11 @@
 
 <script>
 export default {
-  middleware: 'checkProtectedRoutes',
-  meta: {
-    auth: { authorization: true },
-  },
+  layout: 'commonLayouts',
+  // middleware: 'checkProtectedRoutes',
+  // meta: {
+  //   auth: { authorization: true },
+  // },
 }
 </script>
 

@@ -54,4 +54,7 @@ export default {
   router: {
     middleware: 'checkProtectedRoutes',
   },
+
+  //  Server Side rendering
+  ssr: true,
 }
