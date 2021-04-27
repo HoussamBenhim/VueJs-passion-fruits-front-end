@@ -1,7 +1,7 @@
 <template>
   <div>
     <button
-      class="mb-3 inline-flex items-center justify-center font-sm text-black focus:outline-none absolute inset-y-0 left-0 flex items-center"
+      class="mb-3 inline-flex items-center justify-center font-sm text-black focus:outline-none left-0 flex items-center"
       aria-expanded="false"
       @click.prevent="$emit('switch_icon')"
     >

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- <LoginForm /> -->
-    <!-- <RegisterForm /> -->
+    <LoginForm />
+    <RegisterForm />
     <Navbar />
     <DropdownMenu />
     <!-- <NotificationContainer /> -->

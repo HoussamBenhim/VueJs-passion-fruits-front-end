@@ -2,15 +2,18 @@
   <div
     :class="{
       hidden: !loginFormState,
-      'bg-white flex flex-row': true,
+      ' flex flex-row': true,
     }"
   >
     <div
-      class="absolute w-9/12 bg-gray-900 opacity-50 left-0 h-screen z-40"
+      class="absolute w-9/12 bg-gray-900 opacity-50 left-0 h-full z-40"
       @click.prevent="toggelLoginForm"
     ></div>
 
-    <div id="loginForm" class="absolute right-0 w-3/12 bg-white h-screen z-50">
+    <div
+      id="loginForm"
+      class="absolute right-0 w-3/12 bg-white z-50 bg-gray-100 h-full"
+    >
       <div id="close-button" class="flex justify-end focus:outline-none m-5">
         <button class="focus:outline-none" @click="toggelLoginForm">
           <BaseIcon name="x" />
@@ -179,6 +182,13 @@ export default {
         }
       )
     },
+  },
+  created() {
+    window.onscroll = function () {
+      var scroll = document.documentElement.scrollTop || document.body.scrollTop
+      if (scroll > 30)
+        document.getElementById('loginForm').style.top = scroll + 'px'
+    }
   },
   methods: {
     async login() {

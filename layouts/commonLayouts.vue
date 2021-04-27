@@ -1,11 +1,13 @@
 <template>
-  <div>
+  <div class="flex flex-col relative">
     <LoginForm />
     <RegisterForm />
     <Navbar />
     <DropdownMenu />
     <NotificationContainer />
-    <Nuxt />
+    <div class="mt-44">
+      <Nuxt />
+    </div>
   </div>
 </template>
 <script>
