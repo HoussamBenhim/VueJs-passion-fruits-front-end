@@ -19,6 +19,9 @@ module.exports = {
         primary: '#FFF190',
         secondary: '#96FFC6',
       },
+      minWidth: {
+        '1/4': '25px',
+      },
     },
   },
   variants: {},

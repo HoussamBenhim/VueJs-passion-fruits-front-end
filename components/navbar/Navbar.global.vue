@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="z-10 fixed top-0 w-full">
+    <nav class="z-20 fixed top-0 w-full">
       <div class="mx-auto px-2 bg-primary">
         <div class="flex items-center justify-between h-20">
           <!-- Mobile menu button Burger @click.prevent="switch_burger_icon_status"-->
@@ -10,9 +10,10 @@
             @switch_icon="switch_burger_icon_status"
           />
           <!-- logo -->
-          <div @click="logout">
+          <NuxtLink to="/">
             <Logo />
-          </div>
+          </NuxtLink>
+
           <div
             class="absolute inset-y-0 right-0 flex items-center md:pr-2 md:mr-3 lg:mr-8 sm:static sm:inset-auto md:ml-6"
           >

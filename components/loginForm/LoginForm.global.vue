@@ -10,11 +10,11 @@
       @click.prevent="toggelLoginForm"
     ></div>
 
-    <div
-      id="loginForm"
-      class="absolute right-0 w-3/12 bg-white z-50 bg-gray-100 h-full"
-    >
-      <div id="close-button" class="flex justify-end focus:outline-none m-5">
+    <div id="loginForm" class="absolute right-0 w-3/12 bg-white z-50 h-full">
+      <div
+        id="close-button"
+        class="w-9 pl-1 pt-1 focus:outline-none border-2 border-gray-200 rounded-full shadow-xl mt-5 ml-5"
+      >
         <button class="focus:outline-none" @click="toggelLoginForm">
           <BaseIcon name="x" />
         </button>
@@ -182,13 +182,6 @@ export default {
         }
       )
     },
-  },
-  created() {
-    window.onscroll = function () {
-      var scroll = document.documentElement.scrollTop || document.body.scrollTop
-      if (scroll > 30)
-        document.getElementById('loginForm').style.top = scroll + 'px'
-    }
   },
   methods: {
     async login() {
