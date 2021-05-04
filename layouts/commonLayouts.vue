@@ -5,7 +5,7 @@
     <Navbar />
     <DropdownMenu />
     <NotificationContainer />
-    <div class="mt-44">
+    <div class="sm:mt-44">
       <Nuxt />
     </div>
   </div>

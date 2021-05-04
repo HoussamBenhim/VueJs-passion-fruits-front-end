@@ -14,7 +14,7 @@ export default {
 
   head() {
     return {
-      titleTemplate: 'LOGO - Livraison 7J/7 - Fruits et Légumes de saison / %s',
+      titleTemplate: 'LOGO Fruits et Légumes de saison / %s - Livraison 7J/7 -',
       meta: [
         {
           hid: 'description',
