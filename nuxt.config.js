@@ -53,8 +53,18 @@ export default {
   // router middlware hook
   router: {
     middleware: 'checkProtectedRoutes',
+    linkActiveClass: 'active-link',
+    // scrollBehavior(to) {
+    //   if (to.hash) {
+    //     return window.scrollTo({
+    //       top: document.querySelector(to.hash).offsetTop + window.innerHeight,
+    //       behavior: 'smooth',
+    //     })
+    //   }
+    //   return window.scrollTo({ top: 0, behavior: 'smooth' })
+    // },
   },
 
   //  Server Side rendering
-  ssr: true,
+  ssr: false,
 }

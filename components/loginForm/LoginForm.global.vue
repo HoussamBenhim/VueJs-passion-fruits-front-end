@@ -2,15 +2,18 @@
   <div
     :class="{
       hidden: !loginFormState,
-      ' flex flex-row': true,
+      ' flex flex-row inset-0 overflow-hidden fixed z-50': true,
     }"
   >
     <div
-      class="absolute w-9/12 bg-gray-900 opacity-50 left-0 h-full z-40"
+      class="w-full text-white bg-gray-900 opacity-50 md:flex-shrink-0 fixed left-0 h-screen z-40"
       @click.prevent="toggelLoginForm"
     ></div>
 
-    <div id="loginForm" class="absolute right-0 w-3/12 bg-white z-50 h-full">
+    <div
+      id="loginForm"
+      class="w-screen sm:w-96 bg-white md:flex-shrink-0 opacity-100 fixed right-0 h-screen z-50"
+    >
       <div
         id="close-button"
         class="w-9 pl-1 pt-1 focus:outline-none border-2 border-gray-200 rounded-full shadow-xl mt-5 ml-5"

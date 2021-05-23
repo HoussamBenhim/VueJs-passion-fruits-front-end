@@ -1,15 +1,14 @@
 <template>
   <div class="relative">
-    <div>
-      <video
-        class="object-cover w-full h-50"
-        preload="auto"
-        autoplay="true"
-        loop="true"
-        :src="urlVideo"
-        type="video/mp4"
-      ></video>
-    </div>
+    <video
+      class="object-cover w-full h-50"
+      autoplay="true"
+      muted
+      preload="auto"
+      loop="true"
+      :src="urlVideo"
+      type="video/mp4"
+    ></video>
 
     <div id="heroTitre" class="absolute top-1/3 w-full font-sans italic">
       <h2

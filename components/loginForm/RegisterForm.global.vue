@@ -1,5 +1,10 @@
 <template>
-  <div :class="{ hidden: !registerFormIsOpen, 'bg-white': true }">
+  <div
+    :class="{
+      hidden: !registerFormIsOpen,
+      'flex flex-row inset-0 overflow-hidden fixed z-50': true,
+    }"
+  >
     <div
       id="loginForm"
       class="w-screen sm:w-96 bg-white md:flex-shrink-0 opacity-100 fixed right-0 h-screen z-50"

@@ -2,7 +2,7 @@
   <div>
     <nav class="z-20 fixed top-0 w-full">
       <div class="mx-auto px-2 bg-primary">
-        <div class="flex items-center justify-between h-20">
+        <div class="flex items-center justify-between h-16">
           <!-- Mobile menu button Burger @click.prevent="switch_burger_icon_status"-->
           <Burgerbutton
             class="md:hidden"
@@ -22,7 +22,7 @@
               :name="getUserName"
               @toggle_login_form="show_hide_login_form"
             />
-            <Basket :article-count="articles.length" />
+            <Basket :article-count="articles ? articles.length : 0" />
           </div>
         </div>
       </div>
@@ -87,13 +87,13 @@ export default {
     return {
       burger_icon_status: false,
       user_is_logged: false,
-      articles: [],
     }
   },
   computed: {
     ...mapGetters('loginModule', ['getUserName']),
     ...mapGetters(['getMenuState']),
     ...mapState('navBarModule', ['navBarStatus']),
+    ...mapState('navBarModule', ['articles']),
   },
   methods: {
     switch_burger_icon_status() {

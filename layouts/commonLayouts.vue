@@ -1,11 +1,11 @@
 <template>
-  <div class="flex flex-col relative">
+  <div class="flex flex-col">
     <LoginForm />
     <RegisterForm />
     <Navbar />
     <DropdownMenu />
     <NotificationContainer />
-    <div class="sm:mt-44">
+    <div class="sm:mt-40">
       <Nuxt />
     </div>
   </div>
