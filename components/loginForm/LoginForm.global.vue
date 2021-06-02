@@ -14,14 +14,8 @@
       id="loginForm"
       class="w-screen sm:w-96 bg-white md:flex-shrink-0 opacity-100 fixed right-0 h-screen z-50"
     >
-      <div
-        id="close-button"
-        class="w-9 pl-1 pt-1 focus:outline-none border-2 border-gray-200 rounded-full shadow-xl mt-5 ml-5"
-      >
-        <button class="focus:outline-none" @click="toggelLoginForm">
-          <BaseIcon name="x" />
-        </button>
-      </div>
+      <BaseCloseButton @click-event="toggelLoginForm" />
+
       <div
         class="mt-0 md:mt-10 z-50 min-h-screen flex items-start justify-center py-0 px-4 sm:px-1"
       >

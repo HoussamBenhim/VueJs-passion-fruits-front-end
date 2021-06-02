@@ -6,6 +6,7 @@
     <DropdownMenu />
     <NotificationContainer />
     <ProductBanner />
+    <Panier />
     <div class="sm:mt-40">
       <Nuxt />
     </div>

@@ -46,15 +46,12 @@ export default {
         this.listCat.add(el.categoryFruit)
       }
     })
-    console.log(this.listCat)
     this.listCat.forEach((cat) => {
-      console.log(this.dataObject)
       const listFruits = this.dataObject.ListFruis.filter(
         (el) => el.categoryFruit === cat
       )
       this.listFruitParCat.set(cat, listFruits)
     })
-    console.log(this.listFruitParCat)
   },
 }
 </script>

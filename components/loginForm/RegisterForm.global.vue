@@ -16,11 +16,16 @@
         alt="légumes"
       /> -->
       <!-- </div> -->
-      <div class="flex justify-end focus:outline-none m-5">
-        <button class="focus:outline-none" @click="toggelRegisterForm">
+      <!-- <div
+        class="flex justify-end focus:outline-none m-5 border-2 border-black"
+      >
+        <button class="focus:outline-none" @click.prevent="toggelRegisterForm">
           <BaseIcon name="x" />
         </button>
-      </div>
+      </div> -->
+
+      <BaseCloseButton @click-event="toggelRegisterForm" />
+
       <div
         class="mt-0 md:mt-10 z-50 min-h-screen flex items-start justify-center py-0 px-4 sm:px-1"
       >

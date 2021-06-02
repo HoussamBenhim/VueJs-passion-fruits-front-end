@@ -29,11 +29,14 @@
       <!--  sous menu -->
       <div class="hidden sm:flex sm:items-stretch w-full h-24 bg-white border">
         <NuxtLink
-          class="mt-2 cursor-pointer flex-1 focus:outline-none flex justify-end"
+          class="mt-2 cursor-pointer hover:text-primary flex-1 focus:outline-none flex justify-end"
           to="/fruits"
         >
           <svg
-            class="text-gray-300 hover:text-secondary"
+            :class="{
+              'text-primary': currentPathName,
+              'text-gray-200': !currentPathName,
+            }"
             width="200"
             height="36"
             viewBox="0 0 230 48"
@@ -52,11 +55,14 @@
           to="/legumes"
         >
           <svg
-            class="text-gray-300 hover:text-primary"
+            :class="{
+              'text-primary': !currentPathName,
+              'text-gray-200': currentPathName,
+            }"
             width="250"
             height="49"
             viewBox="0 0 346 59"
-            fill="none"
+            fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -92,8 +98,11 @@ export default {
   computed: {
     ...mapGetters('loginModule', ['getUserName']),
     ...mapGetters(['getMenuState']),
-    ...mapState('navBarModule', ['navBarStatus']),
-    ...mapState('navBarModule', ['articles']),
+    ...mapState('navBarModule', ['navBarStatus', 'articles']),
+    currentPathName() {
+      console.log(this.getCurrentPath())
+      return this.getCurrentPath() === 'fruits' || this.getCurrentPath() === ''
+    },
   },
   methods: {
     switch_burger_icon_status() {
@@ -104,6 +113,9 @@ export default {
     },
     logout() {
       this.$store.dispatch('loginModule/logoutUser')
+    },
+    getCurrentPath() {
+      return this.$nuxt.$route.path.substring(1)
     },
   },
 
@@ -126,4 +138,11 @@ export default {
 }
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+/* exact link will show the primary color for only the exact matching link */
+.nuxt-link-exact-active {
+  color: red;
+  opacity: 1;
+  text-decoration: none;
+}
+</style>

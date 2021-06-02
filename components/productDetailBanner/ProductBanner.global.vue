@@ -5,7 +5,7 @@
         class="fixed top-0 left-99 focus:outline-none"
         @click="closeProductBanner"
       >
-        <BaseIcon name="x" width="25" hight="25" />
+        <BaseCloseButton @click-event="toggelRegisterForm" />
       </button>
       <img
         class="w-full h-97 object-cover object-center"
