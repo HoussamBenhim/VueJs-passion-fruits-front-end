@@ -8,22 +8,14 @@
       <div
         class="text-white text-xs font-mono font-bold flex flex-col justify-between p-2 h-36"
       >
-        <div class="flex flex-row">
+        <div
+          class="flex flex-row"
+          v-for="(descreption, index) in objectProduct.desciptionFruit"
+          :key="index"
+        >
           <BaseIcon name="check" color="yellow" />
           <div class="opacity-100">
-            {{ objectProduct.desciption.firstComment }}
-          </div>
-        </div>
-        <div class="flex flex-row">
-          <BaseIcon name="check" color="yellow" />
-          <div class="opacity-100">
-            {{ objectProduct.desciption.secondComment }}
-          </div>
-        </div>
-        <div class="flex flex-row">
-          <BaseIcon name="check" color="yellow" />
-          <div class="opacity-100">
-            {{ objectProduct.desciption.thirdComment }}
+            {{ descreption }}
           </div>
         </div>
       </div>
@@ -40,14 +32,15 @@
       <div class="flex flex-col justify-between content-center h-40">
         <div class="flex flex-col mt-2 sm:mx-2">
           <p class="text-xs font-mono font-bold text-gray-500">Frichti</p>
-          <p
+          <div
+            @click="openProductBanner"
             class="text-base font-semibold mt-1 cursor-pointer hover:underline leading-4"
           >
-            <NuxtLink to="/fruits">{{ objectProduct.tittle }}</NuxtLink>
-          </p>
-          <p class="text-xs font-mono font-medium text-gray-500 mt-1">
+            {{ objectProduct.tittle }}
+          </div>
+          <div class="text-xs font-mono font-medium text-gray-500 mt-1">
             {{ objectProduct.message }}
-          </p>
+          </div>
         </div>
         <div
           class="h-10 sm:mx-2 flex flex-row justify-between content-center items-center"
@@ -91,10 +84,16 @@ export default {
   },
   methods: {
     ...mapActions('navBarModule', ['addArticle', 'removeArticle']),
+    ...mapActions('productBannerModule', ['setBannerState', 'setData']),
+
     getArticleById(payload) {
       return this.getArticlesArray.filter((article) => {
         return article.id === payload.id
       })
+    },
+    openProductBanner() {
+      this.setData(this.objectProduct)
+      this.setBannerState()
     },
   },
   computed: {

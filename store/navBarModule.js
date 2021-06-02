@@ -12,7 +12,9 @@ export const mutations = {
     state.navBarStatus = true
   },
   ADD_ARTICLE(state, payload) {
+    console.log(state.articles)
     state.articles.push(payload)
+    console.log(state.articles)
   },
   REMOVE_ARTICLE(state, payload) {
     state.articles = state.articles.filter((article) => {

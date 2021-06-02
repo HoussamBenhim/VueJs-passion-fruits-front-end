@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-full">
     <div class="w-full flex flex-row items-end mt-2 md:mt-7">
       <p class="font-bold tracking-wider text-md md:text-xl z-10">
         {{ titre }}
@@ -30,9 +30,6 @@ export default {
       type: String,
       default: '',
     },
-  },
-  created() {
-    console.log(this.titre)
   },
 }
 </script>

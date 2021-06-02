@@ -5,6 +5,7 @@
     <Navbar />
     <DropdownMenu />
     <NotificationContainer />
+    <ProductBanner />
     <div class="sm:mt-40">
       <Nuxt />
     </div>
@@ -16,7 +17,8 @@ export default {
 
   head() {
     return {
-      titleTemplate: 'LOGO - Livraison 7J/7 - Fruits et Légumes de saison / %s',
+      titleTemplate:
+        'PassionFruits - Livraison 7J/7 - Fruits et Légumes de saison / %s',
       meta: [
         {
           hid: 'description',

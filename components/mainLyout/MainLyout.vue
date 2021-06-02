@@ -1,15 +1,18 @@
 <template>
   <div>
     <div class="w-full h-full flex col p-0">
-      <SideBarMenu :list="data.ListCategories" />
+      <SideBarMenu :list="listCat" />
       <div class="w-full lg:w-3/4 flex flex-row flex-wrap p-1 h-full lg:mx-12">
         <HelloComponent />
-        <HeaderSection :titre="data.titre" :descript="data.description" />
+        <HeaderSection
+          :titre="dataObject.titre"
+          :descript="dataObject.description"
+        />
         <CardsSection
-          v-for="item in data.ListCategories"
-          :key="item.id"
-          :product-list="item.categoryProductList"
-          :category-name="item.categoryName"
+          v-for="item in listCat"
+          :key="item"
+          :product-list="listFruitParCat.get(item)"
+          :category-name="item"
         />
       </div>
     </div>
@@ -28,7 +31,8 @@ export default {
   },
   data() {
     return {
-      data: {},
+      listCat: new Set([]),
+      listFruitParCat: new Map(),
     }
   },
   props: {
@@ -37,7 +41,20 @@ export default {
     },
   },
   created() {
-    this.data = this.dataObject
+    this.dataObject.ListFruis.map((el) => {
+      if (!this.listCat.has(el.categoryFruit)) {
+        this.listCat.add(el.categoryFruit)
+      }
+    })
+    console.log(this.listCat)
+    this.listCat.forEach((cat) => {
+      console.log(this.dataObject)
+      const listFruits = this.dataObject.ListFruis.filter(
+        (el) => el.categoryFruit === cat
+      )
+      this.listFruitParCat.set(cat, listFruits)
+    })
+    console.log(this.listFruitParCat)
   },
 }
 </script>
