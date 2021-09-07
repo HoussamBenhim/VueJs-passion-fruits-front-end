@@ -9,17 +9,17 @@
       </button>
       <img
         class="w-full h-97 object-cover object-center"
-        :src="require(`@/assets/img/fruits/${dataObject.image}`)"
+        :src="require(`@/assets/img/${repertoire}/${dataObject.image_url}`)"
         alt="limon"
         srcset=""
       />
       <div class="w-full px-10">
         <div class="py-14 border-b-2 border-gray-300">
           <div class="text-lg text-gray-400 font-semibold">
-            {{ dataObject.origine }}
+            {{ dataObject.origin }}
           </div>
           <h3 class="text-3xl font-bold font-sans mt-2">
-            {{ dataObject.titre }}
+            {{ dataObject.name }}
           </h3>
           <div class="mt-7 text-base text-gray-500 font-normal">
             {{ dataObject.description }}
@@ -43,7 +43,7 @@
             Valeur nutritionelle
           </h3>
           <div class="mt-7 text-base text-gray-500 font-normal">
-            {{ dataObject.valeurNutri }}
+            {{ dataObject.valeur_nutritionnelle }}
           </div>
         </div>
         <div class="py-14 border-b-2 border-gray-300">
@@ -57,17 +57,17 @@
         class="border-2 border-gray-300 flex flex-row justify-between px-10 items-center w-100 h-20 bg-white fixed bottom-0"
       >
         <div class="text-lg font-serif font-bold pt-2">
-          {{ dataObject.price }}
+          {{ dataObject.price }} $
         </div>
-        <div @click="addArticle(dataObject)" class="w-28 h-5">
+        <div class="w-28 h-5" @click="addArticle(dataObject)">
           <BaseButton name="Ajouter" />
         </div>
       </div>
     </div>
 
     <div
-      @click="closeProductBanner"
       class="inset-0 w-full text-white bg-gray-900 opacity-50 md:flex-shrink-0 fixed left-0 h-screen z-40"
+      @click="closeProductBanner"
     ></div>
   </div>
 </template>
@@ -79,14 +79,8 @@ export default {
   data() {
     return {
       dataObject: {},
+      repertoire: '',
     }
-  },
-  methods: {
-    closeProductBanner() {
-      this.$store.dispatch('productBannerModule/setBannerState')
-      this.$store.dispatch('productBannerModule/clearData')
-    },
-    ...mapActions('navBarModule', ['addArticle', 'removeArticle']),
   },
   computed: {
     ...mapState({
@@ -97,7 +91,18 @@ export default {
   watch: {
     bannerState() {
       this.dataObject = this.getData
+      this.repertoire = this.getCurrentPath()
     },
+  },
+  methods: {
+    getCurrentPath() {
+      return this.$nuxt.$route.path.substring(1)
+    },
+    closeProductBanner() {
+      this.$store.dispatch('productBannerModule/setBannerState')
+      this.$store.dispatch('productBannerModule/clearData')
+    },
+    ...mapActions('navBarModule', ['addArticle', 'removeArticle']),
   },
 }
 </script>

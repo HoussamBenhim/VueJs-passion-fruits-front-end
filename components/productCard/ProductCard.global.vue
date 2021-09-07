@@ -10,12 +10,12 @@
       >
         <div
           class="flex flex-row"
-          v-for="(descreption, index) in objectProduct.desciptionFruit"
+          v-for="(descreption, index) in objectProduct.poductDescriptionList"
           :key="index"
         >
           <BaseIcon name="check" color="yellow" />
           <div class="opacity-100">
-            {{ descreption }}
+            {{ descreption.description }}
           </div>
         </div>
       </div>
@@ -24,7 +24,7 @@
       <div class="w-full h-40">
         <img
           class="w-full h-40 object-cover object-center"
-          :src="require(`@/assets/img/fruits/${objectProduct.image}`)"
+          :src="require(`@/assets/img/${path}/${objectProduct.image_url}`)"
           alt="limon"
           srcset=""
         />
@@ -36,10 +36,10 @@
             @click="openProductBanner"
             class="text-base font-semibold mt-1 cursor-pointer hover:underline leading-4"
           >
-            {{ objectProduct.tittle }}
+            {{ objectProduct.name }}
           </div>
           <div class="text-xs font-mono font-medium text-gray-500 mt-1">
-            {{ objectProduct.message }}
+            {{ objectProduct.origin }}
           </div>
         </div>
         <div
@@ -76,14 +76,17 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 export default {
-  props: ['dataProduct', 'image'],
+  props: ['dataProduct', 'path'],
   data() {
     return {
       objectProduct: this.dataProduct,
     }
   },
+  created() {
+    console.log(this.path)
+  },
   methods: {
-    ...mapActions('navBarModule', ['addArticle', 'removeArticle']),
+    ...mapActions('panierModule', ['addArticle', 'removeArticle']),
     ...mapActions('productBannerModule', ['setBannerState', 'setData']),
 
     getArticleById(payload) {
@@ -97,7 +100,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters('navBarModule', ['getArticlesArray']),
+    ...mapGetters('panierModule', ['getArticlesArray']),
   },
 }
 </script>

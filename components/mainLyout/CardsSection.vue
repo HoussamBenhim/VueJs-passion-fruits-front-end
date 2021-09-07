@@ -17,11 +17,11 @@
         <BanniereProduct :url="urlVideoBanniere" />
       </div>
       <div
-        class="w-44 mr-2 my-3"
-        v-for="(product, index) in ProductList"
+        v-for="(product, index) in Products"
         :key="index"
+        class="w-44 mr-2 my-3"
       >
-        <ProductCard :data-product="product" />
+        <ProductCard :path="imagePath" :data-product="product" />
       </div>
     </div>
   </div>
@@ -41,13 +41,20 @@ export default {
     return {
       urlVideoBanniere:
         'https://public-storage.frichti.co/marketing-items/videos/website_pesto_maison_v2.mp4',
-      ProductList: [],
+      Products: [],
       category: '',
+      imagePath: '',
     }
   },
   created() {
-    this.ProductList = this.productList
+    this.Products = this.productList
     this.category = this.categoryName
+    this.imagePath = this.getCurrentPath()
+  },
+  methods: {
+    getCurrentPath() {
+      return this.$nuxt.$route.path.substring(1)
+    },
   },
 }
 </script>

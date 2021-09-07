@@ -6,7 +6,7 @@
   >
     <div
       id="close-button"
-      class="bg-white w-10 p-2 focus:outline-none border-2 border-gray-200 rounded-full"
+      class="bg-white w-10 p-2 focus:outline-none shadow-lg rounded-full"
     >
       <BaseIcon name="x" />
     </div>

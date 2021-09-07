@@ -46,7 +46,7 @@ export default {
     port: 8081,
   },
   env: {
-    DEV_BASE_URL: 'http://localhost:8080',
+    DEV_BASE_URL: 'http://localhost:8075',
     PROD_API: '/proxy',
     DEV_LOGIN_API: 'http://localhost:3000',
   },

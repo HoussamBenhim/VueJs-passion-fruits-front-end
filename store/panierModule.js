@@ -1,29 +1,33 @@
 export const namespaced = true
 
 export const state = () => ({
-  navBarStatus: true,
-  articles: [],
+  panierState: false,
+  articlesPanier: [],
 })
+
 export const mutations = {
-  SET_NAV_BAR_STATUS_TO_FALSE(state) {
-    state.navBarStatus = false
+  OPEN_PANIER(state) {
+    state.panierState = true
   },
-  SET_NAV_BAR_STATUS_TO_TRUE(state) {
-    state.navBarStatus = true
+  CLOSE_PANIER(state) {
+    state.panierState = false
   },
   ADD_ARTICLE(state, payload) {
-    state.articles.push(payload)
+    state.articlesPanier.push(payload)
   },
   REMOVE_ARTICLE(state, payload) {
-    state.articles = state.articles.filter((article) => {
+    state.articlesPanier = state.articlesPanier.filter((article) => {
       return article.id !== payload.id
     })
   },
 }
 
 export const actions = {
-  hideNavbar({ commit }) {
-    commit('SET_NAV_BAR_STATUS_TO_FALSE')
+  openPanier({ commit }) {
+    commit('OPEN_PANIER')
+  },
+  closePanier({ commit }) {
+    commit('CLOSE_PANIER')
   },
   addArticle({ commit }, payload) {
     commit('ADD_ARTICLE', payload)
@@ -34,11 +38,7 @@ export const actions = {
 }
 
 export const getters = {
-  getNavBarSate(state) {
-    // eslint-disable-next-line no-unneeded-ternary
-    return state.navBarStatus
-  },
   getArticlesArray(state) {
-    return state.articles
+    return state.articlesPanier
   },
 }

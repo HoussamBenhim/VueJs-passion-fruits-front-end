@@ -1,17 +1,18 @@
 <template>
   <div>
-    <div class="w-full h-full flex col p-0">
-      <SideBarMenu :list="listCat" />
+    <div
+      v-if="Object.keys(this.dataObject).length > 0"
+      class="w-full h-full flex col p-0"
+    >
+      <SideBarMenu :list="listSubCategories" />
       <div class="w-full lg:w-3/4 flex flex-row flex-wrap p-1 h-full lg:mx-12">
         <HelloComponent />
-        <HeaderSection
-          :titre="dataObject.titre"
-          :descript="dataObject.description"
-        />
+
+        <HeaderSection :titre="titre" :descript="description" />
         <CardsSection
-          v-for="item in listCat"
+          v-for="item in listSubCategories"
           :key="item"
-          :product-list="listFruitParCat.get(item)"
+          :product-list="listFruitParSubCategory.get(item)"
           :category-name="item"
         />
       </div>
@@ -29,29 +30,32 @@ export default {
     HeaderSection,
     CardsSection,
   },
-  data() {
-    return {
-      listCat: new Set([]),
-      listFruitParCat: new Map(),
-    }
-  },
   props: {
     dataObject: {
       type: Object,
+      dafault: {},
     },
   },
+  data() {
+    return {
+      titre: '',
+      description: '',
+      listSubCategories: new Set([]),
+      listFruitParSubCategory: new Map(),
+    }
+  },
+
   created() {
-    this.dataObject.ListFruis.map((el) => {
-      if (!this.listCat.has(el.categoryFruit)) {
-        this.listCat.add(el.categoryFruit)
-      }
-    })
-    this.listCat.forEach((cat) => {
-      const listFruits = this.dataObject.ListFruis.filter(
-        (el) => el.categoryFruit === cat
+    this.titre = this.dataObject.categoryDescription
+
+    this.dataObject.productSubCategory.map((subCategory) => {
+      this.listSubCategories.add(subCategory.subCtergoryName.toLowerCase())
+      this.listFruitParSubCategory.set(
+        subCategory.subCtergoryName.toLowerCase(),
+        subCategory.products
       )
-      this.listFruitParCat.set(cat, listFruits)
     })
+    console.log(this.listSubCategories)
   },
 }
 </script>

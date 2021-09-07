@@ -22,7 +22,9 @@
               :name="getUserName"
               @toggle_login_form="show_hide_login_form"
             />
-            <Basket :article-count="articles ? articles.length : 0" />
+            <Basket
+              :article-count="articlesPanier ? articlesPanier.length : 0"
+            />
           </div>
         </div>
       </div>
@@ -98,7 +100,8 @@ export default {
   computed: {
     ...mapGetters('loginModule', ['getUserName']),
     ...mapGetters(['getMenuState']),
-    ...mapState('navBarModule', ['navBarStatus', 'articles']),
+    ...mapState('navBarModule', ['navBarStatus']),
+    ...mapState('panierModule', ['articlesPanier']),
     currentPathName() {
       console.log(this.getCurrentPath())
       return this.getCurrentPath() === 'fruits' || this.getCurrentPath() === ''
