@@ -31,7 +31,7 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    //https://github.com/nuxt-community/global-components
+    // https://github.com/nuxt-community/global-components
     '@nuxtjs/global-components',
   ],
 
@@ -54,17 +54,10 @@ export default {
   router: {
     middleware: 'checkProtectedRoutes',
     linkActiveClass: 'active-link',
-    // scrollBehavior(to) {
-    //   if (to.hash) {
-    //     return window.scrollTo({
-    //       top: document.querySelector(to.hash).offsetTop + window.innerHeight,
-    //       behavior: 'smooth',
-    //     })
-    //   }
-    //   return window.scrollTo({ top: 0, behavior: 'smooth' })
-    // },
+    /*
+     ** Router configuration
+     */
   },
-
   //  Server Side rendering
   ssr: false,
 }

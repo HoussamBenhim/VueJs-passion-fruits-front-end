@@ -6,12 +6,12 @@
       class="hidden absolute top-0 bg-gray-800 w-full h-40 opacity-60 hover-target"
     >
       <div
-        class="text-white text-xs font-mono font-bold flex flex-col justify-between p-2 h-36"
+        class="text-white text-xs font-mono font-bold flex flex-col justify-center content-around p-2 h-36"
       >
         <div
-          class="flex flex-row"
           v-for="(descreption, index) in objectProduct.poductDescriptionList"
           :key="index"
+          class="flex justify-end"
         >
           <BaseIcon name="check" color="yellow" />
           <div class="opacity-100">
@@ -33,8 +33,8 @@
         <div class="flex flex-col mt-2 sm:mx-2">
           <p class="text-xs font-mono font-bold text-gray-500">Frichti</p>
           <div
-            @click="openProductBanner"
             class="text-base font-semibold mt-1 cursor-pointer hover:underline leading-4"
+            @click="openProductBanner"
           >
             {{ objectProduct.name }}
           </div>
@@ -59,7 +59,11 @@
               </p>
             </div>
             <div
-              class="bg-primary flex flex-col mr-2"
+              :class="{
+                'bg-primary': currentPathName,
+                'bg-secondary': !currentPathName,
+                'flex flex-col mr-2': true,
+              }"
               @click="addArticle(objectProduct)"
             >
               <p class="font-bold text-lg w-8 p-0 text-center cursor-pointer">
@@ -82,8 +86,11 @@ export default {
       objectProduct: this.dataProduct,
     }
   },
-  created() {
-    console.log(this.path)
+  computed: {
+    ...mapGetters('panierModule', ['getArticlesArray']),
+    currentPathName() {
+      return this.getCurrentPath() === 'fruits' || this.getCurrentPath() === ''
+    },
   },
   methods: {
     ...mapActions('panierModule', ['addArticle', 'removeArticle']),
@@ -98,9 +105,9 @@ export default {
       this.setData(this.objectProduct)
       this.setBannerState()
     },
-  },
-  computed: {
-    ...mapGetters('panierModule', ['getArticlesArray']),
+    getCurrentPath() {
+      return this.$nuxt.$route.path.substring(1)
+    },
   },
 }
 </script>

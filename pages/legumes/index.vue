@@ -28,9 +28,8 @@ export default {
     }
   },
   async asyncData(context) {
-    const { data } = await axios.get(
-      process.env.DEV_BASE_URL + '/category/LEGUMES'
-    )
+    const url = process.env.DEV_BASE_URL + '/categories/LEGUMES'
+    const { data } = await axios.get(url)
     return { data }
   },
 }

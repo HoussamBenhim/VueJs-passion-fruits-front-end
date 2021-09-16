@@ -7,11 +7,11 @@
       <SideBarMenu :list="listSubCategories" />
       <div class="w-full lg:w-3/4 flex flex-row flex-wrap p-1 h-full lg:mx-12">
         <HelloComponent />
-
         <HeaderSection :titre="titre" :descript="description" />
         <CardsSection
-          v-for="item in listSubCategories"
-          :key="item"
+          v-for="(item, index) in listSubCategories"
+          :key="index"
+          :lien-index="index"
           :product-list="listFruitParSubCategory.get(item)"
           :category-name="item"
         />
@@ -31,6 +31,7 @@ export default {
     CardsSection,
   },
   props: {
+    // eslint-disable-next-line vue/require-default-prop
     dataObject: {
       type: Object,
       dafault: {},
@@ -55,7 +56,6 @@ export default {
         subCategory.products
       )
     })
-    console.log(this.listSubCategories)
   },
 }
 </script>

@@ -1,10 +1,10 @@
 <template>
   <div>
     <button
-      @click="openPanier"
       id="user-menu"
       class="flex items-center ml-2 md:ml-4 text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white-800 focus:ring-primary"
       aria-haspopup="true"
+      @click="openPanier"
     >
       <BaseIcon name="shopping-bag" height="23" width="23" />
 

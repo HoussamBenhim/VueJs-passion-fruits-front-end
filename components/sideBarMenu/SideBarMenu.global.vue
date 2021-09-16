@@ -5,7 +5,7 @@
         v-for="(item, index) in listMenu"
         :key="index"
         class="text-sm font-semibold my-2 opacity-60 hover:opacity-95 cursor-pointer"
-        :to="{ name: '/', hash: '#' + item }"
+        :to="`#${index}`"
       >
         {{ item }}
       </nuxt-link>
@@ -21,7 +21,6 @@ export default {
     }
   },
   created() {
-    console.log(this.listMenu)
     this.listMenu = this.list
   },
 }

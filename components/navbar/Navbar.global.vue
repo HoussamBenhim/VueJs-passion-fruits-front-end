@@ -1,7 +1,13 @@
 <template>
   <div>
     <nav class="z-20 fixed top-0 w-full">
-      <div class="mx-auto px-2 bg-primary">
+      <div
+        :class="{
+          'bg-primary': currentPathName,
+          'bg-secondary': !currentPathName,
+          'mx-auto px-2 ': true,
+        }"
+      >
         <div class="flex items-center justify-between h-16">
           <!-- Mobile menu button Burger @click.prevent="switch_burger_icon_status"-->
           <Burgerbutton
@@ -58,7 +64,7 @@
         >
           <svg
             :class="{
-              'text-primary': !currentPathName,
+              'text-secondary': !currentPathName,
               'text-gray-200': currentPathName,
             }"
             width="250"
@@ -103,7 +109,6 @@ export default {
     ...mapState('navBarModule', ['navBarStatus']),
     ...mapState('panierModule', ['articlesPanier']),
     currentPathName() {
-      console.log(this.getCurrentPath())
       return this.getCurrentPath() === 'fruits' || this.getCurrentPath() === ''
     },
   },
