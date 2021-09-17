@@ -26,7 +26,7 @@
       <div
         v-for="(product, index) in Products"
         :key="index"
-        class="w-44 mr-2 my-3"
+        class="w-48 mr-3 my-3"
       >
         <ProductCard :path="imagePath" :data-product="product" />
       </div>
