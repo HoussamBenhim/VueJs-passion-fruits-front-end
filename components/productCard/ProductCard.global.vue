@@ -3,10 +3,10 @@
     class="mr-2 relative w-full rounded-2xl hover:shadow-2xl overflow-hidden hover-trigger"
   >
     <div
-      class="hidden absolute top-0 bg-gray-900 w-full h-40 opacity-50 hover-target"
+      class="hidden absolute top-0 bg-gray-900 w-full h-40 bg-opacity-60 hover-target"
     >
       <div
-        class="text-white text-xs font-mono font-bold flex flex-col justify-center p-2 h-36"
+        class="text-white text-xs font-mono font-extrabold flex flex-col justify-center p-2 h-36"
       >
         <div
           v-for="(descreption, index) in objectProduct.poductDescriptionList"
