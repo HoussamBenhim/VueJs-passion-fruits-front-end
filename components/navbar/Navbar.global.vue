@@ -35,7 +35,7 @@
         </div>
       </div>
       <!--  sous menu -->
-      <div class="hidden sm:flex sm:items-stretch w-full h-24 bg-white border">
+      <div class="hidden sm:flex sm:items-stretch w-full h-16 bg-white">
         <NuxtLink
           class="mt-2 cursor-pointer hover:text-primary flex-1 focus:outline-none flex justify-end"
           to="/fruits"
@@ -80,6 +80,10 @@
             />
           </svg>
         </NuxtLink>
+      </div>
+      <div class="hidden sm:flex sm:items-stretch h-9 flex-row justify-center">
+        <!-- <div class="border-2 bg-green-700 w-20 md:w-44 h-7"></div> -->
+        <!-- <div class="border-2 bg-black w-20 md:w-44 h-7"></div> -->
       </div>
     </nav>
   </div>
