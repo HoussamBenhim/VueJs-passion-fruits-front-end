@@ -1,8 +1,8 @@
 <template>
   <button
-    @click="$emit('click-event')"
     type="button"
     class="outline-none focus:outline-none"
+    @click="$emit('click-event')"
   >
     <div
       id="close-button"

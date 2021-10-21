@@ -49,6 +49,7 @@ export default {
     DEV_BASE_URL: 'http://localhost:8075',
     PROD_API: '/proxy',
     DEV_LOGIN_API: 'http://localhost:3000',
+    ADRESS_API_URL: 'https://api-adresse.data.gouv.fr/search/',
   },
   // router middlware hook
   router: {

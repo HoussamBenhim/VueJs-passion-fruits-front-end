@@ -35,7 +35,7 @@
         </div>
       </div>
       <!--  sous menu -->
-      <div class="hidden sm:flex sm:items-stretch w-full h-16 bg-white">
+      <div class="hidden sm:flex w-full h-16 bg-white">
         <NuxtLink
           class="mt-2 cursor-pointer hover:text-primary flex-1 focus:outline-none flex justify-end"
           to="/fruits"

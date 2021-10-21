@@ -2,6 +2,8 @@
   <div class="flex flex-col">
     <LoginForm />
     <RegisterForm />
+    <AddressChangeLog />
+    <DeliveryChangeLog />
     <Navbar />
     <DropdownMenu />
     <NotificationContainer />
@@ -13,8 +15,10 @@
   </div>
 </template>
 <script>
+import AddressChangeLog from '../components/panier/AddressChangeLog.vue'
+import DeliveryChangeLog from '../components/panier/DeliveryChangeLog.vue'
 export default {
-  components: {},
+  components: { AddressChangeLog, DeliveryChangeLog },
 
   head() {
     return {

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mr-2 relative w-full rounded-2xl hover:shadow-2xl overflow-hidden hover-trigger"
+    class="mr-2 relative w-full rounded-2xl hover:shadow-2xl overflow-hidden hover-trigger border border-black"
   >
     <div
       class="hidden absolute top-0 bg-gray-900 w-full h-40 bg-opacity-60 hover-target"
