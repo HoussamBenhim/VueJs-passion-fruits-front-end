@@ -45,6 +45,9 @@ export const mutations = {
       return article.id !== payload.id
     })
   },
+  ADD_INDICATIONS(state, payload) {
+    state.deliveryAddress.deliveryIndications = payload
+  },
 }
 
 export const actions = {
@@ -75,6 +78,10 @@ export const actions = {
   setAddress({ commit }, payload) {
     commit('SET_DELIVERY_ADDRESS', payload)
   },
+  addIndications({ commit }, payload) {
+    commit('ADD_INDICATIONS', payload)
+    commit('CLOSE_DELIVERY_LOG')
+  },
 }
 
 export const getters = {
@@ -100,5 +107,11 @@ export const getters = {
       style: 'currency',
       currency: 'EUR',
     }).format(summ)
+  },
+  getDeliveryAddress(state) {
+    return state.deliveryAddress
+  },
+  getAddress(state) {
+    return state.deliveryAddress.address
   },
 }

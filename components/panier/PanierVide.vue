@@ -1,8 +1,5 @@
 <template>
   <div class="relative flex flex-col justify-start w-full h-full">
-    <div class="absolute inset-0 w-full h-10">
-      <BaseCloseButton @click-event="closePanier" />
-    </div>
     <div class="mt-64">
       <BaseErrorComponent message="votre panier est vide !" />
     </div>

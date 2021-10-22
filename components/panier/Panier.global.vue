@@ -6,7 +6,7 @@
   >
     <div
       id="panierMerp"
-      class="border border-black top-0 bottom-0 right-0 overflow-y-scroll fixed bg-white z-50 w-full sm:w-96 h-full"
+      class="top-0 bottom-0 right-0 overflow-y-scroll fixed bg-white z-50 w-full sm:w-96 h-full"
     >
       <!------------------------------ <div> Panier vide ! </div> ----------------------------->
       <div class="w-10">

@@ -61,4 +61,9 @@ export default {
   },
   //  Server Side rendering
   ssr: false,
+  privateRuntimeConfig: {
+    stripe: {
+      secretKey: process.env.STRIPE_SECRET_KEY,
+    },
+  },
 }

@@ -6,7 +6,7 @@
   >
     <div
       id="panierMerp"
-      class="border border-black top-0 bottom-0 right-0 overflow-y-scroll fixed bg-white z-50 w-full sm:w-96 h-full"
+      class="top-0 bottom-0 right-0 overflow-y-scroll fixed bg-white z-50 w-full sm:w-96 h-full"
     >
       <BaseCloseButton @click-event="closeAddressChangeLog" />
       <div class="py-5">
@@ -14,7 +14,7 @@
           Adresse de Livraison
         </p>
       </div>
-      <div class="w-10/12 mx-auto border">
+      <div class="w-10/12 mx-auto">
         <div class="p-2 flex flex-row h-16 border-2 shadow-lg border-black">
           <BaseIcon
             name="map-pin"
@@ -32,10 +32,8 @@
           />
         </div>
         <div class="relative">
-          <div
-            class="w-full border absolute top-0 border-black bg-white shadow-lg"
-          >
-            <div v-if="typedAdresse.length > 0">
+          <div class="w-full absolute top-0 bg-white shadow-lg">
+            <div v-if="typedAdresse && typedAdresse.length > 0">
               <div
                 v-for="address in addressArray"
                 :key="address"
@@ -55,25 +53,35 @@
               Indications au livreur
             </p>
           </div>
+
           <div class="z-10">
             <textarea
               v-model="deliveryIndications"
-              placeholder="Nom de l'entreprise, digicode, interphone, acceuil, étage ...."
+              name="textArea"
+              :placeholder="
+                getDeliveryAddress.deliveryIndications.length > 0
+                  ? getDeliveryAddress.deliveryIndications
+                  : ' Nom de l\'entreprise, digicode, interphone, acceuil, étage ....'
+              "
               class="w-full font-medium border border-gray-400 p-4"
               rows="5"
             ></textarea>
           </div>
         </div>
-        <div class="border mt-20 border-black w-full">
-          <BaseButton name="valider" @click="setAddress" />
+        <div class="mt-20 w-full">
+          <BaseButton type="submit" name="valider" @click-event="addAddress" />
         </div>
       </div>
     </div>
+    <div
+      class="hidden sm:flex inset-0 w-0 sm:w-full text-white bg-gray-900 opacity-50 md:flex-shrink-0 fixed left-0 h-screen z-40"
+      @click="closeAddressChangeLog"
+    ></div>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 import adressAPI from '@/services/adresseAPI.js'
 export default {
   data() {
@@ -81,6 +89,7 @@ export default {
       typedAdresse: '',
       addressArray: [],
       deliveryIndications: '',
+      eanableSubmit: false,
     }
   },
 
@@ -89,9 +98,21 @@ export default {
       statusAddressChangeLog: (state) =>
         state.panierModule.adressChangeLogState,
     }),
+    ...mapGetters('panierModule', ['getDeliveryAddress']),
   },
+
   methods: {
     ...mapActions('panierModule', ['closeAddressChangeLog', 'setAddress']),
+    addAddress() {
+      if (this.typedAdresse.length > 0 && this.eanableSubmit) {
+        this.setAddress({
+          address: this.typedAdresse,
+          deliveryIndications: this.deliveryIndications,
+        })
+        this.deliveryIndications = ''
+        this.closeAddressChangeLog()
+      }
+    },
     addBorder() {
       this.borderStatus = true
     },
@@ -102,6 +123,7 @@ export default {
       if (this.typedAdresse.length < 2) {
         return []
       }
+      this.eanableSubmit = false
       this.fetchData()
     },
     async fetchData() {
@@ -111,6 +133,7 @@ export default {
       }
     },
     chooseAddress(choice) {
+      this.eanableSubmit = true
       this.typedAdresse = choice.innerHTML.trim()
       this.addressArray = []
     },

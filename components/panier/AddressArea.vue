@@ -4,12 +4,11 @@
     @click="openAddressChangeLog"
   >
     <div
-      class="flex flex-row flex-wrap items-start text-sm font-normal font-serif"
+      class="flex flex-row flex-nowrap items-start text-sm font-normal font-serif"
     >
       <BaseIcon name="map-pin" width="18" height="18" class="mr-4" />
       <div class="flex flex-col items-start text-sm font-medium">
-        <div class="">78 avenue saint mandé</div>
-        <div class="">75010 Paris</div>
+        <span>{{ getAddress }}</span>
       </div>
     </div>
     <div class="text-sm font-serif font-medium text-gray-700 mt-1">
@@ -19,14 +18,16 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
       adress: '',
     }
   },
-
+  computed: {
+    ...mapGetters('panierModule', ['getAddress']),
+  },
   methods: {
     ...mapActions('panierModule', [
       'openAddressChangeLog',
