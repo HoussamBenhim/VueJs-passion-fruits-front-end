@@ -22,15 +22,15 @@ export default {
   components: {
     mainLyout,
   },
-  data() {
-    return {
-      dataArray: [],
-    }
-  },
   async asyncData(context) {
     const url = process.env.DEV_BASE_URL + '/categories/FRUITS'
     const { data } = await axios.get(url)
     return { data }
+  },
+  data() {
+    return {
+      dataArray: [],
+    }
   },
 }
 </script>
